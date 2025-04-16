@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add New Address</title>
+  <link rel="stylesheet" href="location.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>ADD A NEW ADDRESS</h2>
+    <button class="location-btn">Use my current location</button>
+    <form method="post" onsubmit="changepath()">
+      <div class="row">
+        <input type="text" placeholder="Name" required/>
+        <input type="text" placeholder="10-digit mobile number" required/>
+      </div>
+      <div class="row">
+        <input type="text" placeholder="Pincode" required/>
+        <input type="text" placeholder="Locality" required/>
+      </div>
+      <textarea placeholder="Address (Area and Street) " required></textarea>
+      <div class="row">
+        <input type="text" placeholder="City/District/Town" required/>
+        <select>
+          <option>--Select State--</option>
+          <option>West Bengal</option>
+          <option>Assam</option>
+          <option>Goa</option>
+        </select>
+      </div>
+      <div class="row">
+        <input type="text" placeholder="Landmark (Optional)" required/>
+        <input type="text" placeholder="Alternate Phone (Optional)" />
+      </div>
+      <div class="address-type">
+        <label><input type="radio" name="type" checked/> Home (All day delivery)</label>
+        <label><input type="radio" name="type" /> Work (Delivery between 10 AM - 5 PM)</label>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="save-btn" >SAVE AND DELIVER HERE</button>
+        <button type="button" class="cancel-btn">CANCEL</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    function changepath(){
+      event.preventDefault();
+      window.location.replace("http://127.0.0.1:3000/payment.html")
+    }
+  </script>
+</body>
+</html>

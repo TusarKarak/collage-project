@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5fcff;
+  padding: 30px;
+  
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  color: #5396c6;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.location-btn {
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+form .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+form input, form select, form textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form textarea {
+  width: 96.4%;
+  resize: vertical;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.address-type {
+  margin: 10px 0;
+}
+
+.address-type label {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.cancel-btn {
+  background: none;
+  border: none;
+  color: #0077cc;
+  cursor: pointer;
+  font-weight: bold;
+}

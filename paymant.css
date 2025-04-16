@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #ede8e8;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.payment-container {
+  height: 180px;
+  width: 500px;
+  margin: 40px auto;
+  margin-top: 150px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px skyblue;
+  transition: .5s;
+}
+.payment-container:hover{
+  box-shadow: 10px 10px 10px skyblue;
+}
+
+.header {
+  background: #2b4c6e;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+form {
+  margin-top: 20px;
+}
+.captcha {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.captcha .code {
+  font-size: 24px;
+  font-family: monospace;
+  background: #e6ffe6;
+  padding: 5px 10px;
+}
+
+.captcha input {
+  flex: 1;
+  padding: 6px;
+}
+
+.captcha button {
+  background-color: rgb(55, 141, 206);
+  width: 140px;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 180px;
+  border-radius: 3px;
+}
