@@ -88,3 +88,7 @@ button[type="submit"]:hover {
     width: 90%;
   }
 }
+.forgot{
+  text-decoration: none;
+  margin-left:60%;
+}

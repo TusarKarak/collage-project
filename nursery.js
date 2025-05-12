@@ -1,8 +1,18 @@
-
+console.log("nursery");
 let bagItems=[];
 let wishItems=[];
+let items=[]
 onLoad();
-function onLoad(){
+async function onLoad(){
+    await fetch('http://localhost:5000/nursery', {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'},
+  }).then(r=>r.json()).then(data=>{
+    items=data;
+    console.log(items,"abc")   
+  });
+  console.log("abcd")   
+
  let bagItemStr=bagItems=localStorage.getItem('bagItems'); 
  bagItems=bagItemStr ? JSON.parse(bagItemStr):[];
  let wishItemStr=wishItems=localStorage.getItem('wishItems'); 
@@ -13,11 +23,17 @@ displayBagIcon();
 }
 
 function addToBag(itemId){
+  if(localStorage.getItem('token')){
   if(!bagItems.includes(itemId)){
     bagItems.push(itemId);
   }
   localStorage.setItem('bagItems',JSON.stringify(bagItems));
   displayBagIcon();
+}
+else{
+  window.location.replace('http://127.0.0.1:3000/profile/profile.html')
+
+}
 }
 
 function displayBagIcon(){
@@ -31,29 +47,20 @@ function displayBagIcon(){
   }
 }
 function addToWish(itemId){
-  console.log(itemId)
+  if(localStorage.getItem('token')){
   document.getElementById(`id${itemId}`).style.fill="red";
   if(!wishItems.includes(itemId)){
     wishItems.push(itemId);
   }
   localStorage.setItem('wishItems',JSON.stringify(wishItems));
 }
+else{
+  window.location.replace('http://127.0.0.1:3000/profile/profile.html')
+}
+}
 
 function  displayItemOnHomePage(){
 let itemcontainerElement=document.querySelector('.items-container');
-
-// let item={
-//   item_image:'project gardensolution/image/Catagories/1.jpg',
-//   rating:{
-//     stars:4.5,
-//     noOfReviews:1400,
-//   },
-//   nursery_name:'Abcd',
-//   item_name:'Mango Plants',
-//   current_price:606,
-//   original_price:1045,
-//   discount_percentage:42,
-// }
 let innerHTML='';
 items.forEach(item=>{
   innerHTML+=`<div class="item-container">

@@ -220,6 +220,7 @@ text-decoration: none;
   color: black;
 } 
 .plantbox{
+  z-index: 1;
   height: 90px;
   width: 170px;
   position: absolute;
@@ -251,6 +252,7 @@ text-decoration: none;
   background-color: black;
 }
 .potbox{
+  z-index: 1;
   height: 90px;
   width: 170px;
   position: absolute;
@@ -280,4 +282,13 @@ text-decoration: none;
   width: 96%;
   height: 2px;
   background-color: black;
+}
+#contact{
+  color: #0d101bd4;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid rgb(238, 20, 20);
+  border-radius: 10px;
+  background-color: #d9dfec;
 }

@@ -1,3 +1,4 @@
+console.log("gardensolution");
 setInterval(()=>{
   let s=document.getElementById("banner").src;
   s=s.split("/")[4]
@@ -41,19 +42,6 @@ function displayBagIcon(){
 
 function  displayItemOnHomePage(){
 let itemcontainerElement=document.querySelector('.items-container');
-
-// let item={
-//   item_image:'project gardensolution/image/Catagories/1.jpg',
-//   rating:{
-//     stars:4.5,
-//     noOfReviews:1400,
-//   },
-//   nursery_name:'Abcd',
-//   item_name:'Mango Plants',
-//   current_price:606,
-//   original_price:1045,
-//   discount_percentage:42,
-// }
 let innerHTML='';
 items.forEach(item=>{
   innerHTML+=`<a href="nursery.html" class="item-container">

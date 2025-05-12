@@ -1,4 +1,4 @@
-
+console.log("plant");
 let bagItems=[];
 let wishItems=[];
 
@@ -14,13 +14,18 @@ displayBagIcon();
 }
 
 function addToBag(itemId){
+  if(localStorage.getItem('token')){
   if(!bagItems.includes(itemId)){
     bagItems.push(itemId);
   }
   localStorage.setItem('bagItems',JSON.stringify(bagItems));
   displayBagIcon();
 }
+else{
+  window.location.replace('http://127.0.0.1:3000/profile/profile.html')
 
+}
+}
 function displayBagIcon(){
   let bagItemCountElement=document.querySelector('.bag-item-count');
   if(bagItems.length>0){
@@ -33,14 +38,17 @@ function displayBagIcon(){
 }
 
 function addToWish(itemId){
-  console.log(itemId)
+  if(localStorage.getItem('token')){
   document.getElementById(`id${itemId}`).style.fill="red"
   if(!wishItems.includes(itemId)){
     wishItems.push(itemId);
   }
   localStorage.setItem('wishItems',JSON.stringify(wishItems));
 }
-
+else{ 
+  window.location.replace('http://127.0.0.1:3000/profile/profile.html')
+}
+}
 function  displayItemOnHomePage(){
 let itemcontainerElement=document.querySelector('.items-container');
 

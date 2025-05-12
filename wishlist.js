@@ -1,3 +1,8 @@
+if(!localStorage.getItem('token')){
+  window.location.replace("/profile/profile.html")
+  localStorage.setItem('path',window.location.href);
+}
+else{
 let bagItemObjects;
 onLoad();
 
@@ -8,8 +13,6 @@ function onLoad() {
 
 
 function loadBagItemObjects() {
-  console.log(wishItems
-);
   bagItemObjects = wishItems
 .map(itemId => {
     for (let i = 0; i < items.length; i++) {
@@ -62,4 +65,5 @@ function generateItemHTML(item) {
 
     <div class="remove-from-cart" onclick="removeFromBag(${item.id})">X</div>
   </div>`;
+}
 }

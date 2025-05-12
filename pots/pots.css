@@ -231,6 +231,7 @@ position: relative;
   stroke: transparent;
 }
 .plantbox{
+  z-index: 1;
   height: 90px;
   width: 170px;
   position: absolute;
@@ -262,6 +263,7 @@ position: relative;
   background-color: black;
 }
 .potbox{
+  z-index: 1;
   height: 90px;
   width: 170px;
   position: absolute;
@@ -279,7 +281,7 @@ position: relative;
 }
 .potitem{
   text-decoration: none;
-  color: black;
+  color: rgb(9, 8, 11);
   margin: 8px;
   margin-left: 15px;
   font-size: 18px;
@@ -291,4 +293,13 @@ position: relative;
   width: 96%;
   height: 2px;
   background-color: black;
+}
+#contact{
+  color: #0d101bd4;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid rgb(238, 20, 20);
+  border-radius: 10px;
+  background-color: #d9dfec;
 }

@@ -137,3 +137,12 @@
   height: 14px;
   cursor: pointer;
 }
+#contact{
+  color: #0d101bd4;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid rgb(238, 20, 20);
+  border-radius: 10px;
+  background-color: #d9dfec;
+}

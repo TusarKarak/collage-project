@@ -1,3 +1,8 @@
+if(!localStorage.getItem('token')){
+  window.location.replace("/profile/profile.html")
+  localStorage.setItem('path',window.location.href);
+}
+else{
 const CONVENIENCE_FEES = 40;
 let bagItemObjects;
 onLoad();
@@ -106,4 +111,5 @@ function generateItemHTML(item) {
 
     <div class="remove-from-cart" onclick="removeFromBag(${item.id})">X</div>
   </div>`;
+}
 }
