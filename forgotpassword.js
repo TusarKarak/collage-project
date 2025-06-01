@@ -1,4 +1,4 @@
-console.log("forgotpassword");
+//console.log("forgotpassword");
 function sendOTP() {
   const email = document.getElementById("email").value;
 

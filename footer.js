@@ -1,4 +1,4 @@
-console.log("footer");
+//console.log("footer");
 document.getElementById('footer').innerHTML=`<div class="footer_container">
         <div class="footer_column">
         <h3>Online Shoppping</h3>

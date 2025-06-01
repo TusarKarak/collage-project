@@ -11,4 +11,4 @@ const nurserySchema = new mongoose.Schema({
   
 });
 
-module.exports = mongoose.model('Nursery', nurserySchema);
+module.exports = mongoose.model('abcdnurseries', nurserySchema);

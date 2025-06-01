@@ -9,7 +9,7 @@ async function onLoad(){
     headers: {'Content-Type': 'application/json'},
   }).then(r=>r.json()).then(data=>{
     items=data;
-    console.log(items,"abc")   
+    //console.log(items,"abc")   
   });
  let bagItemStr=bagItems=localStorage.getItem('bagItems'); 
  bagItems=bagItemStr ? JSON.parse(bagItemStr):[];

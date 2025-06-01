@@ -4,7 +4,7 @@ const pot=require('../models/pot')
 
 potrouter.get("/pot",async (req,res,next)=>{
     const potData=await pot.find();
-    console.log(potData,"abc");
+    //console.log(potData,"abc");
     res.json(potData);
 })
 

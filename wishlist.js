@@ -24,7 +24,7 @@ function loadBagItemObjects() {
       }
     }
   });
-  console.log(bagItemObjects);
+  //console.log(bagItemObjects);
 }
 
 function displayBagItems() {

@@ -4,7 +4,8 @@ const cors = require('cors');
 //const { MONGO_URI } = require('./config');
 const authRoutes = require('./routes/userroutes');
 const nurseryRoutes=require('./routes/nurseryRouter');
-const potRoutes=require('./routes/potRouter')
+const potRoutes=require('./routes/potRouter');
+const bagRoute = require('./routes/addToBag');
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ const MONGO_URI= 'mongodb+srv://karaktusar:tusarkarak%40123@completecoding.wxrzz
 app.use(authRoutes);
 app.use(nurseryRoutes);
 app.use(potRoutes);
+app.use(bagRoute);
 
 const PORT = 5000;
 mongoose.connect(MONGO_URI)

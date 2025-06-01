@@ -1,4 +1,4 @@
-console.log("gardensolution");
+//console.log("gardensolution");
 setInterval(()=>{
   let s=document.getElementById("banner").src;
   s=s.split("/")[4]

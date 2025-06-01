@@ -59,8 +59,8 @@ router.post("/send-otp", async (req, res) => {
   
   await transporter.sendMail(mailOptions, (err, info) => {
     if (err){
-      console.log("abc")
-      console.log(err);
+      //console.log("abc")
+      //console.log(err);
       return res.status(500).send("Error sending email");
     } 
     res.send("OTP sent");

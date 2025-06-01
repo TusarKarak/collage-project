@@ -1,4 +1,4 @@
-console.log("plant");
+//console.log("plant");
 let bagItems=[];
 let wishItems=[];
 

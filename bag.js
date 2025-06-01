@@ -55,7 +55,7 @@ function displayBagSummary() {
 }
 
 function loadBagItemObjects() {
-  console.log(bagItems);
+  //console.log(bagItems);
   bagItemObjects = bagItems.map(itemId => {
     for (let i = 0; i < items.length; i++) {
       if (itemId == items[i].id) {
@@ -66,7 +66,7 @@ function loadBagItemObjects() {
       }
     }
   });
-  console.log(bagItemObjects);
+  //console.log(bagItemObjects);
 }
 
 function displayBagItems() {
