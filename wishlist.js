@@ -15,15 +15,10 @@ async function onLoad() {
     console.log(data)
     
   });
-<<<<<<< HEAD
   displayBagItems();
 
   }
 
-=======
-  //console.log(bagItemObjects);
-}
->>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
 
 function displayBagItems() {
   let containerElement = document.querySelector('.bag-items-container');
