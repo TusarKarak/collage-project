@@ -2,9 +2,15 @@ const express = require('express');
 const nurseryrouter = express.Router();
 const nursery=require('../models/nursery')
 
+<<<<<<< HEAD
 nurseryrouter.get("/nursery/:name",async (req,res,next)=>{
     const nurseryData=await nursery.findOne({nursery:req.params.name});
     console.log(nurseryData,req.params.name);
+=======
+nurseryrouter.get("/nursery",async (req,res,next)=>{
+    const nurseryData=await Nursery.find();
+    console.log("abc");
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
     res.json(nurseryData);
 })
 nurseryrouter.get("/allnursery/:plant",async (req,res,next)=>{

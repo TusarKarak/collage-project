@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 //console.log("nursery");
+=======
+//console.log("plant");
+let bagItems=[];
+let wishItems=[];
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
 
 let items=[];
 let wish=[]; 

@@ -15,9 +15,14 @@ async function onLoad(){
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
   }).then(r=>r.json()).then(data=>{
+<<<<<<< HEAD
     wish=data.newWish;
     bagItems=data.bagItems;
     wishItems=wish.length;
+=======
+    items=data;
+    //console.log(items,"abc")   
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
   });
 }
  displayItemOnHomePage();

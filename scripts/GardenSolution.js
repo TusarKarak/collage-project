@@ -1,5 +1,8 @@
 //console.log("gardensolution");
+<<<<<<< HEAD
 let items=[];
+=======
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
 setInterval(()=>{
   let s=document.getElementById("banner").src;
   s=s.split("/")[4]

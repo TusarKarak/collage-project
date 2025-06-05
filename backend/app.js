@@ -1,14 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-//const { MONGO_URI } = require('./config');
 const authRoutes = require('./routes/userroutes');
 const nurseryRoutes=require('./routes/nurseryRouter');
+<<<<<<< HEAD
 const wishRoute = require('./routes/addToWish');
 const bagRoute = require('./routes/bagRoutes');
 const locationRoute = require('./routes/Location');
 const paymentRoute = require('./routes/payment');
 
+=======
+const potRoutes=require('./routes/potRouter');
+const bagRoute = require('./routes/addToBag');
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
 
 const app = express();
 app.use(cors());
@@ -18,10 +22,15 @@ const MONGO_URI= 'mongodb+srv://karaktusar:tusarkarak%40123@completecoding.wxrzz
 
 app.use(authRoutes);
 app.use(nurseryRoutes);
+<<<<<<< HEAD
 app.use(bagRoute);
 app.use(wishRoute);
 app.use(locationRoute)
 app.use(paymentRoute)
+=======
+app.use(potRoutes);
+app.use(bagRoute);
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
 
 const PORT = 5000;
 mongoose.connect(MONGO_URI)

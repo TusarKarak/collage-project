@@ -61,8 +61,24 @@ function displayBagSummary() {
   `;
 }
 
+<<<<<<< HEAD
 function storeMRP(totalMRP){
   localStorage.setItem("totalMRP",totalMRP);
+=======
+function loadBagItemObjects() {
+  //console.log(bagItems);
+  bagItemObjects = bagItems.map(itemId => {
+    for (let i = 0; i < items.length; i++) {
+      if (itemId == items[i].id) {
+        return items[i];
+      }
+      else if(itemId== items3[i].id){
+        return items3[i];
+      }
+    }
+  });
+  //console.log(bagItemObjects);
+>>>>>>> a9e76b14fb723ee31a9364a796c16a8b2a108be3
 }
 
 function displayBagItems() {
