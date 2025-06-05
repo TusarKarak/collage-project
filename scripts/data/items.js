@@ -1,6 +1,6 @@
-const items=[
-  {
-    id:'1',
+{
+  nursery:"abcd",
+  items=[{
     image:'project gardensolution/image/Catagories/1.jpg',
     nursery:'Abcd Nursery',
     item_name:'Mango Plant',
@@ -10,7 +10,6 @@ const items=[
     delivery_date:"10/09/25",
   },
   {
-    id:'2',
     image:'project gardensolution/image/Catagories/2.jpg',
     nursery:'Abcd Nursery',
     item_name:'Flower Plant',
@@ -20,7 +19,6 @@ const items=[
     delivery_date:"10/09/25",
   },
   {
-    id:'3',
     image:'project gardensolution/image/Catagories/3.jpg',
     nursery:'Abcd Nursery',
     item_name:'Indoor Plant',
@@ -30,7 +28,6 @@ const items=[
     delivery_date:"10/09/25",
   },
   {
-    id:'4',
     image:'project gardensolution/image/Catagories/6.webp',
     nursery:'Abcd Nursery',
     item_name:'Flower Plant',
@@ -40,7 +37,6 @@ const items=[
     delivery_date:"10/09/25",
   },
   {
-    id:'5',
     image:'/project gardensolution/image/Catagories/8.png',
     nursery:'Abcd Nursery',
     item_name:'Gift Plant',
@@ -49,4 +45,5 @@ const items=[
     return_period:7,
     delivery_date:"10/09/25",
   },
-];
+]
+}

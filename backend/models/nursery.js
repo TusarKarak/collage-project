@@ -1,14 +1,10 @@
 const mongoose = require('mongoose');
 
 const nurserySchema = new mongoose.Schema({
-    image:String,
     nursery:String,
-    item_name:String,
-    original_price:Number,
-    discount_percentage:Number,
-    return_period:Number,
-    delivery_date:Date,
-  
+    url:String,
+    plants:Array,
+    pots:Array
 });
 
-module.exports = mongoose.model('Nursery', nurserySchema);
+module.exports = mongoose.model('nurseries', nurserySchema);

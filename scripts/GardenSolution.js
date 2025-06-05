@@ -1,4 +1,5 @@
-console.log("gardensolution");
+//console.log("gardensolution");
+let items=[];
 setInterval(()=>{
   let s=document.getElementById("banner").src;
   s=s.split("/")[4]
@@ -12,42 +13,32 @@ setInterval(()=>{
     document.getElementById("banner").src="project gardensolution/banner1.jpg";
   }
 },3000)
-let bagItems=[];
 
 onLoad();
 function onLoad(){
- let bagItemStr=bagItems=localStorage.getItem('bagItems'); 
- bagItems=bagItemStr ? JSON.parse(bagItemStr):[];
- displayItemOnHomePage();
-displayItemOnHomePage();
-displayBagIcon();
+ fetch('http://localhost:5000/allnurserys', {
+    method: 'GET',
+  }).then(r=>r.json()).then(data=>{
+    console.log(data);   
+    items=data;
+    displayItemOnHomePage();
+  });
 }
 
-function addToBag(itemId){
-  bagItems.push(itemId);
-  localStorage.setItem('bagItems',JSON.stringify(bagItems));
-  displayBagIcon();
-}
 
-function displayBagIcon(){
-  let bagItemCountElement=document.querySelector('.bag-item-count');
-  if(bagItems.length>0){
-    bagItemCountElement.style.visibility='visible';  
-  bagItemCountElement.innerText=bagItems.length;
-  }
-  else{
-    bagItemCountElement.style.visibility='hidden';
-  }
-}
 
 function  displayItemOnHomePage(){
 let itemcontainerElement=document.querySelector('.items-container');
 let innerHTML='';
 items.forEach(item=>{
-  innerHTML+=`<a href="nursery.html" class="item-container">
-        <img class="item-image" src="${item.image}" alt="item image">
-        <div class="nursery-name">${item.nursery}</div>`       
+  innerHTML+=`<div onclick="setnursery('${item.nursery}')" class="item-container">
+        <img class="item-image" src="${item.url}" alt="item image">
+        <div class="nursery-name">${item.nursery}</div></div>`       
 });
 
 itemcontainerElement.innerHTML=innerHTML;
+}
+function setnursery(nursery){
+  localStorage.setItem("nursery",nursery);
+  window.location.replace("nursery.html")
 }

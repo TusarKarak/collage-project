@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
   if (!user) return res.status(400).json({ error: 'User not found' });
 
   const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
+  if (!isMatch) return res.status(400).json({ error: 'Invalid email or password' });
 
   const token = jwt.sign({ id: user._id }, "tusarkarak");
   res.json({ message: 'Login successful', token });
@@ -59,8 +59,8 @@ router.post("/send-otp", async (req, res) => {
   
   await transporter.sendMail(mailOptions, (err, info) => {
     if (err){
-      console.log("abc")
-      console.log(err);
+      //console.log("abc")
+      //console.log(err);
       return res.status(500).send("Error sending email");
     } 
     res.send("OTP sent");

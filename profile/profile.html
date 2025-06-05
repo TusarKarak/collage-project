@@ -18,6 +18,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required placeholder="Enter your password">
       </div>
+      <div id="error"></div>
       <a class="forgot" href="/forgotpassword.html">Forgot Password</a>
       <button type="submit" class="btn">Login</button>
       <div class="footer">
@@ -26,10 +27,10 @@
     </form>
   </div>
   <script>
-    console.log("profile");
+    //console.log("profile");
     document.getElementById('signupForm').onsubmit = async (e) => {
       e.preventDefault();
-      console.log(email.value,password.value)
+      //console.log(email.value,password.value)
       const res = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -39,7 +40,9 @@
         })
       });
       const data = await res.json();
-      alert(data.message || data.error);
+      if(data.error)
+      document.getElementById("error").innerText=data.error;
+      //console.log(data.message)
       if(data.token){
       localStorage.setItem('token',data.token)
       window.location.replace(localStorage.getItem('path'))

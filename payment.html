@@ -12,13 +12,86 @@
         </div>
         <form>
             <label class="option selected">
-                <input type="radio" name="payment" />
+                <input type="radio" name="payment" onclick="setPaymentOption(1)"/>
                 <span>Cash on Delivery</span>
-                <div class="captcha"> 
-                    <button type="submit">CONFIRM ORDER</button>
+                <br>
+                <br>
+                <input type="radio" name="payment"  onclick="setPaymentOption(0)"/>
+                <span>Online Payment</span>
+                <div class="captcha" id="payButton"> 
+                    <button type="button" >CONFIRM ORDER</button>
                 </div>
             </label>
         </form>
     </div>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        let paymentOption;
+        function setPaymentOption(value){
+           paymentOption=value
+        }
+        document.getElementById('payButton').onclick = async function() {
+            // Call backend to create an order
+            localStorage.setItem("myorder","0")
+            if(paymentOption){
+                async function load(){
+                   await fetch(`http://localhost:5000/payment/cash/${localStorage.getItem("orderId")}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+                
+            });
+            alert("Order Successful!");
+            window.location.replace("orderlist.html")
+        }
+        load()
+            }else{
+            const response = await fetch('http://localhost:5000/create-order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: 1, // amount in rupees
+                    currency: 'INR',
+                    receipt: 'receipt#1'
+                })
+            });
+            const order = await response.json();
+
+            var options = {
+                key: "rzp_test_PrelxkiTXHCY3b", // Replace with your Razorpay Key ID
+                amount: order.amount,
+                currency: order.currency,
+                name: "Your Company",
+                description: "Test Transaction",
+                image: "https://yourcompany.com/logo.png", // Optional
+                order_id: order.id,
+                handler: async function (response) {
+                    await fetch(`http://localhost:5000/payment/${localStorage.getItem("orderId")}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+                
+            });
+                    alert("Payment Successful!");
+                    window.location.replace("orderlist.html")
+                    console.log(response);
+                    // You can also send payment details to backend for verification
+                },
+                prefill: {
+                    name: "John Doe",
+                    email: "johndoe@example.com",
+                    contact: "9999999999"
+                },
+                notes: {
+                    address: "Your Address"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+            };
+
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+        }
+    }
+    </script>
 </body>
 </html>

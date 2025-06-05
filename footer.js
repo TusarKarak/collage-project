@@ -1,34 +1,31 @@
-console.log("footer");
+//console.log("footer");
 document.getElementById('footer').innerHTML=`<div class="footer_container">
         <div class="footer_column">
         <h3>Online Shoppping</h3>
-        <a href="#">Plants</a>
-        <a href="#">Seeds</a>
-        <a href="#">Gifts</a>
-        <a href="#">Home</a>
-        <a href="#">Gardening</a>
-        <a href="#">Pots</a>
+        <a href="plants.html">Plants</a>
+        <a href="gifts.html">Gifts</a>
+        <a href="GardenSolution.html">Home</a>
+        <a href="pots.html">Pots</a>
+        <a href="seasonflower.html">Season</a>
         <a href="#">GardenSolution Insider</a>
         </div>
             <div class="footer_column">
-                <h3>Online Shoppping</h3>
-                <a href="#">Plants</a>
-            <a href="#">Seeds</a>
-            <a href="#">Gifts</a>
-            <a href="#">Home</a>
-            <a href="#">Gardening</a>
-            <a href="#">Pots</a>
-            <a href="#">GardenSolution Insider</a>
+            <h3>Online Shoppping</h3>       
+        <a href="plants.html">Plants</a>
+        <a href="gifts.html">Gifts</a>
+        <a href="GardenSolution.html">Home</a>
+        <a href="pots.html">Pots</a>
+        <a href="seasonflower.html">Season</a>
+        <a href="#">GardenSolution Insider</a>
             </div>
             <div class="footer_column">
-                <h3>Online Shoppping</h3>
-                <a href="#">Plants</a>
-            <a href="#">Seeds</a>
-            <a href="#">Gifts</a>
-            <a href="#">Home</a>
-            <a href="#">Gardening</a>
-            <a href="#">Pots</a>
-            <a href="#">GardenSolution Insider</a>
+         <h3>Online Shoppping</h3>       
+        <a href="plants.html">Plants</a>
+        <a href="gifts.html">Gifts</a>
+        <a href="GardenSolution.html">Home</a>
+        <a href="pots.html">Pots</a>
+        <a href="seasonflower.html">Season</a>
+        <a href="#">GardenSolution Insider</a>
             </div>
         </div>         
     <b><a id="contact" href="contactus.html">Contact Us</a></b>

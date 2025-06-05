@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.order-history {
+    max-width: 800px;
+    margin: auto;
+}
+
+.order-item {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.order-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.details {
+    flex: 1;
+}
+
+.details h3 {
+    margin: 0 0 5px;
+    font-size: 1.1em;
+}
+
+.details p {
+    margin: 4px 0;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.status.delivered {
+    color: green;
+}
+
+.status.cancelled {
+    color: red;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.shipping-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.shipping-container h4 {
+    color: #757575;
+    margin-bottom: 10px;
+}
+
+.shipping-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.shipping-card strong {
+    font-size: 1.1em;
+}
+
+.shipping-card p {
+    margin: 4px 0;
+}
+

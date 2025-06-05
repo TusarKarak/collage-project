@@ -2,15 +2,22 @@ if(!localStorage.getItem('token')){
   window.location.replace("/profile/profile.html")
   localStorage.setItem('path',window.location.href);
 }
-else{
+else{let wishItems;
 const CONVENIENCE_FEES = 40;
-let bagItemObjects;
+let bagItemObjects=[];
 onLoad();
 
-function onLoad() {
-  loadBagItemObjects();
-  displayBagItems();
-  displayBagSummary();
+async function onLoad() {
+  await fetch(`http://localhost:5000/baglist/${localStorage.getItem("token")}`).then(r=>r.json()).then(data=>{
+    bagItemObjects=data.allBagData;
+    bagItems=bagItemObjects.length;
+    wishItems=data.wishItems
+    console.log(data)
+    
+    //loadBagItemObjects(); 
+    displayBagItems();
+    displayBagSummary();
+  });
 }
 
 function displayBagSummary() {
@@ -48,25 +55,14 @@ function displayBagSummary() {
       <span class="price-item-value">₹${finalPayment}</span>
     </div>
   </div>
-  <a href=${totalMRP==0?"#":"location.html"} class="btn-place-order">
+  <a href=${totalMRP==0?"#":"location.html"} onclick='storeMRP(${finalPayment})' class="btn-place-order">
     <div class="css-xjhrni">PLACE ORDER</div>
   </a>
   `;
 }
 
-function loadBagItemObjects() {
-  console.log(bagItems);
-  bagItemObjects = bagItems.map(itemId => {
-    for (let i = 0; i < items.length; i++) {
-      if (itemId == items[i].id) {
-        return items[i];
-      }
-      else if(itemId== items3[i].id){
-        return items3[i];
-      }
-    }
-  });
-  console.log(bagItemObjects);
+function storeMRP(totalMRP){
+  localStorage.setItem("totalMRP",totalMRP);
 }
 
 function displayBagItems() {
@@ -79,15 +75,34 @@ function displayBagItems() {
 }
 
 function removeFromBag(itemId) {
-  bagItems = bagItems.filter(bagItemId => bagItemId != itemId);
-  localStorage.setItem('bagItems', JSON.stringify(bagItems));
-  loadBagItemObjects();
-  displayBagIcon();
-  displayBagItems();
-  displayBagSummary();
+ async function deleteItem(){
+
+    await fetch('http://localhost:5000/baglist/delete', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          token: localStorage.getItem("token"),
+          id:itemId
+        })
+      }).then(r=>r.json()).then(data=>{
+        console.log(data,"agsda")
+        bagItems=data
+      onLoad();
+      displayBagIcon();
+      })
+      displayBagItems();
+      displayBagSummary();
+    }
+    deleteItem();
 }
 
 function generateItemHTML(item) {
+  let date=new Date();
+      let day=date.getDate()+5;
+      let month=date.getMonth()+1;
+      let year=date.getFullYear();
+      date=new Date(year+"-"+month+"-"+day).toDateString()
+      let newDate=String(date)
   return `<div class="bag-item-container">
     <div class="item-left-part">
       <img class="bag-item-img" src="${item.image}">
@@ -101,15 +116,16 @@ function generateItemHTML(item) {
         <span class="discount-percentage">(${item.discount_percentage}% OFF)</span>
       </div>
       <div class="return-period">
-        <span class="return-period-days">${item.return_period} days</span> return available
+        <span class="return-period-days">${item.return_period}</span>
       </div>
       <div class="delivery-details">
         Delivery by
-        <span class="delivery-details-days">${item.delivery_date}</span>
+        <span class="delivery-details-days">${newDate}</span>
       </div>
     </div>
 
-    <div class="remove-from-cart" onclick="removeFromBag(${item.id})">X</div>
+    <div class="remove-from-cart" onclick="removeFromBag('${item.id}')">X</div>
   </div>`;
 }
+
 }

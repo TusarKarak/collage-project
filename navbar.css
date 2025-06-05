@@ -1,0 +1,262 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif ;
+  box-sizing: border-box;
+}
+header{
+  display: flex;
+    background-color: #ffffff;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1px solid #dce5f7;
+}
+.Garden_home{
+  height: 45px;
+  margin-left: 10px;
+  border-radius: 20px;
+}
+.logo_container{
+  margin-left: 4%;;
+}
+.action_bar{
+  margin-right: 4%;
+}
+.nav_bar{
+  display: flex;
+  min-width: 500px;
+  justify-content: space-evenly;
+}
+.nav_bar .navitem{
+  position: relative;
+  font-size: 14px;
+    letter-spacing: .3px;
+    color: #282c3f;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 28px 0;
+    border-bottom:none;
+}
+.nav_bar .navitem:hover{
+  border-bottom:4px solid #f54e77;
+}
+.search_bar{
+  height: 40px;
+  min-width: 200px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+.search_input{
+  color: #696e79;
+  background-color: #f5f5f6;
+  flex-grow: 1;
+  height: 40px;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+}
+.search_icon{
+  height: 20px;
+  padding: 10px;
+  box-sizing: content-box;
+  background-color: #f5f5f6;
+  color: #282c3f;
+  font-weight: 300;
+  border-radius: 5px 0 0 5px;
+}
+.action_bar{
+  display: flex;
+  min-width: 200px;
+  justify-content: space-evenly;
+}
+.action_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.action_bar a{
+  text-decoration: none;
+  color: black;
+}
+.action_name{
+  color: black;
+} 
+.plantbox{
+  z-index: 1;
+  height: 90px;
+  width: 150px;
+  position: absolute;
+  top: 55px;
+  background-color: rgb(226, 237, 252);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px gray;
+  visibility: hidden;
+}
+.plantbox span{
+  margin-left: 2%;
+  width: 96%;
+  height: 2px;
+  background-color: black;
+} 
+.nav_bar div:hover .plantbox{
+  visibility: visible;
+}
+.plantitem{
+  text-decoration: none;
+  color: black;
+  margin: 8px;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+}
+
+.potbox{
+  z-index: 1;
+  height: 90px;
+  width: 120px;
+  position: absolute;
+  top: 55px;
+  background-color: rgb(226, 237, 252);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px gray;
+  visibility: hidden;
+}
+.nav_bar div:hover .potbox{
+  visibility: visible;
+}
+ .potitem{
+  text-decoration: none;
+  color: black;
+  margin: 8px;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+  cursor: pointer;
+}
+ .potbox span{
+  margin-left: 2%;
+  width: 96%;
+  height: 2px;
+  background-color: black;
+} 
+#contact{
+  color: #0d101bd4;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid rgb(238, 20, 20);
+  border-radius: 10px;
+  background-color: #d9dfec;
+}
+.bag-item-count{
+  
+  background-color: #f16565;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 18px;
+  padding: 0 6px;
+  height: 18px;
+  position: relative;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #fff;
+  left: 13px;
+  top: -44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.wish-item-count{
+  
+  background-color: #f16565;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 18px;
+  padding: 0 6px;
+  height: 18px;
+  position: relative;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #fff;
+  left: 13px;
+  top: -44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.seasonbox{
+  z-index: 1;
+  height: 90px;
+  width: 115px;
+  position: absolute;
+  top: 55px;
+  background-color: rgb(226, 237, 252);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px gray;
+  visibility: hidden;
+}
+.nav_bar div:hover .seasonbox{
+  visibility: visible;
+}
+.seasonitem{
+  text-decoration: none;
+  color: black;
+  margin: 8px;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+  cursor: pointer;
+}
+ .seasonbox span{
+  margin-left: 2%;
+  width: 96%;
+  height: 2px;
+  background-color: black;
+} 
+ .profile span{
+  margin-left: 2%;
+  width: 96%;
+  height: 2px;
+  background-color: black;
+} 
+.profileitem{
+  text-decoration: none;
+  color: black;
+  margin: 8px;
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+  cursor: pointer;
+}
+.profile{
+  z-index: 1;
+  height: 90px;
+  width: 115px;
+  position: absolute;
+  top: 55px;
+  background-color: rgb(226, 237, 252);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px gray;
+  visibility: hidden;
+}
+
+.action_bar div:hover .profile{
+  visibility: visible;
+}

@@ -73,7 +73,7 @@ button[type="submit"]:hover {
 }
 
 .footer a {
-  color: #007BFF;
+  color: #066ef6;
   text-decoration: none;
 }
 
@@ -91,4 +91,11 @@ button[type="submit"]:hover {
 .forgot{
   text-decoration: none;
   margin-left:60%;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  color: rgb(2, 69, 77);
+}
+#error{
+  color: red;
+  font-family: 'Times New Roman', Times, serif;
 }

@@ -4,7 +4,11 @@ const cors = require('cors');
 //const { MONGO_URI } = require('./config');
 const authRoutes = require('./routes/userroutes');
 const nurseryRoutes=require('./routes/nurseryRouter');
-const potRoutes=require('./routes/potRouter')
+const wishRoute = require('./routes/addToWish');
+const bagRoute = require('./routes/bagRoutes');
+const locationRoute = require('./routes/Location');
+const paymentRoute = require('./routes/payment');
+
 
 const app = express();
 app.use(cors());
@@ -14,7 +18,10 @@ const MONGO_URI= 'mongodb+srv://karaktusar:tusarkarak%40123@completecoding.wxrzz
 
 app.use(authRoutes);
 app.use(nurseryRoutes);
-app.use(potRoutes);
+app.use(bagRoute);
+app.use(wishRoute);
+app.use(locationRoute)
+app.use(paymentRoute)
 
 const PORT = 5000;
 mongoose.connect(MONGO_URI)

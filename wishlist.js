@@ -1,31 +1,24 @@
 if(!localStorage.getItem('token')){
-  window.location.replace("/profile/profile.html")
   localStorage.setItem('path',window.location.href);
+  window.location.replace("/profile/profile.html")
 }
 else{
-let bagItemObjects;
+  
+let bagItemObjects=[];
 onLoad();
 
-function onLoad() {
-  loadBagItemObjects();
-  displayBagItems();
-}
-
-
-function loadBagItemObjects() {
-  bagItemObjects = wishItems
-.map(itemId => {
-    for (let i = 0; i < items.length; i++) {
-      if (itemId == items[i].id) {
-        return items[i];
-      }
-      else if(itemId== items3[i].id){
-        return items3[i];
-      }
-    }
+async function onLoad() {
+  await fetch(`http://localhost:5000/wishlist/${localStorage.getItem("token")}`).then(r=>r.json()).then(data=>{
+    bagItemObjects=data.allWishData;
+    wishItems=bagItemObjects.length;
+    bagItems=data.bagItems
+    console.log(data)
+    
   });
-  console.log(bagItemObjects);
-}
+  displayBagItems();
+
+  }
+
 
 function displayBagItems() {
   let containerElement = document.querySelector('.bag-items-container');
@@ -36,16 +29,25 @@ function displayBagItems() {
   containerElement.innerHTML = innerHTML;
 }
 
-function removeFromBag(itemId) {
-  wishItems
- = wishItems
-.filter(bagItemId => bagItemId != itemId);
-  localStorage.setItem('wishItems', JSON.stringify(wishItems
-));
-  loadBagItemObjects();
-  displayBagIcon();
-  displayBagItems();
-  displayBagSummary();
+function removeFromWish(itemId) {
+  async function deleteItem(){
+    if(localStorage.getItem("token"))
+    await fetch('http://localhost:5000/wishlist/delete', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          token: localStorage.getItem("token"),
+          id:itemId
+        })
+      }).then(r=>r.json()).then(data=>{
+        console.log(data,"agsda")
+        wishItems=data
+      onLoad();
+      displayWishIcon();
+      })
+  }
+      deleteItem();
+  //loadBagItemObjects();
 }
 
 function generateItemHTML(item) {
@@ -63,7 +65,8 @@ function generateItemHTML(item) {
       </div>
     </div>
 
-    <div class="remove-from-cart" onclick="removeFromBag(${item.id})">X</div>
+    <div class="remove-from-cart" onclick="removeFromWish('${item.id}')">X</div>
   </div>`;
 }
+
 }

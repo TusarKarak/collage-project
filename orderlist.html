@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order History</title>
+    <link rel="stylesheet" href="orderlist.css">
+</head>
+<body>
+
+<div class="order-history" id="order-history">
+<script>
+    let date=new Date();
+    if(localStorage.getItem("myorder")==="1"){
+    fetch(`http://localhost:5000/myallorders/${localStorage.getItem("token")}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        
+      }).then(r=>r.json()).then(alldata=>{
+        alldata.forEach(data=>{
+
+            data.items.forEach(item=>{
+                let totalDiscount = 0;
+                totalDiscount =item.discount_percentage*item.original_price/100;
+                let finalPayment = item.original_price - totalDiscount;
+                document.getElementById("order-history").innerHTML+=`<div class="order-item">
+                    <img src="${item.image}" alt="Product Image">
+                    <div class="details">
+                        <h3>${item.nursery}</h3>
+                        <h3>${item.item_name}</h3>
+                        <p>₹${finalPayment}</p>
+                        <p class="status delivered">${data.deliveryDate.split("T")[0]}</p>
+                    </div>
+                    <div class="shipping-container">
+                        <h4>Shipping details</h4>
+                        <div class="shipping-card">
+                            <strong>${data.name}</strong>
+                            <p>${data.address}</p>
+                            <p>${data.locality}</p>
+                            <p>${data.city_district_town}</p>
+                            <p>${data.state}-${data.pin}</p>
+                            <p><strong>${data.ph_no}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+        })
+        })
+      });
+    }else{
+    fetch(`http://localhost:5000/myorders/${localStorage.getItem("orderId")}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        
+      }).then(r=>r.json()).then(data=>{
+        data.items.forEach(item=>{
+            let totalDiscount = 0;
+             totalDiscount =item.discount_percentage*item.original_price/100;
+             let finalPayment = item.original_price - totalDiscount;
+            document.getElementById("order-history").innerHTML+=`<div class="order-item">
+        <img src="${item.image}" alt="Product Image">
+        <div class="details">
+            <h3>${item.nursery}</h3>
+            <h3>${item.item_name}</h3>
+            <p>₹${finalPayment}</p>
+            <p class="status delivered">${data.deliveryDate.split("T")[0]}</p>
+            </div>
+            <div class="shipping-container">
+              <h4>Shipping details</h4>
+              <div class="shipping-card">
+                  <strong>${data.name}</strong>
+                  <p>${data.address}</p>
+                  <p>${data.locality}</p>
+                  <p>${data.city_district_town}</p>
+                  <p>${data.state}-${data.pin}</p>
+                  <p><strong>${data.ph_no}</strong></p>
+              </div>
+          </div>
+                  </div>
+            </div>
+    </div>`
+        })
+      });
+    }
+</script>
+</body>
+</html>

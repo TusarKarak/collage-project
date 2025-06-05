@@ -1,0 +1,14 @@
+.banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:#b1c9e2;
+            padding: 4px;
+        }
+        .text {
+            font-size: 25px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 30px;
+            font-family:'Courier New', Courier, monospace;
+        }
