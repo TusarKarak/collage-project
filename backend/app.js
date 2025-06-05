@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+//const { MONGO_URI } = require('./config');
 const authRoutes = require('./routes/userroutes');
 const nurseryRoutes=require('./routes/nurseryRouter');
 <<<<<<< HEAD
